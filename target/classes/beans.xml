@@ -1,22 +1,41 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans.xsd
-   http://www.springframework.org/schema/context
-   http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="TomHolland" class="com.stackroute.domain.Actor">
-        <property name="name" value="Tom Holland"></property>
-        <property name="gender" value="male"></property>
-        <property name="age" value="30"></property>
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!--    <bean id="actorObj" class="com.stackroute.domain.Actor">-->
+    <!--        <property name="name" value="Rohit Chakravorty"/>-->
+    <!--        <property name="gender" value="M"/>-->
+    <!--        <property name="age" value="21"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="movie" class="com.stackroute.domain.Movie">-->
+    <!--       <property name="actor" ref="actorObj"/>-->
+    <!--    </bean>-->
+    <bean id="actor1" class="com.stackroute.domain.Actor">
+        <constructor-arg name="name" value="Rohit Chakravorty"/>
+        <constructor-arg name="gender" value="M"/>
+        <constructor-arg name="age" value="21"/>
     </bean>
-    <bean id="spiderman" class="com.stackroute.domain.Movie" autowire="byType"></bean>
-
-
-
-
+    <bean id="actor2" class="com.stackroute.domain.Actor">
+        <constructor-arg name="name" value="Sabyasachi Sahoo"/>
+        <constructor-arg name="gender" value="M"/>
+        <constructor-arg name="age" value="21"/>
+    </bean>
+    <bean id="actor3" class="com.stackroute.domain.Actor">
+        <constructor-arg name="name" value="Mites Mrinoy"/>
+        <constructor-arg name="gender" value="M"/>
+        <constructor-arg name="age" value="21"/>
+    </bean>
+    <bean id="movie" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg name="actor1" ref="actor1"/>
+        <constructor-arg name="actor2" ref="actor2"/>
+        <constructor-arg name="actor3" ref="actor3"/>
+    </bean>
+    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg name="actor1" ref="actor1"/>
+        <constructor-arg name="actor2" ref="actor2"/>
+        <constructor-arg name="actor3" ref="actor3"/>
+    </bean>
 </beans>
-
-
-

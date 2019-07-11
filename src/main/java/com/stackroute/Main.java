@@ -20,21 +20,12 @@ import org.springframework.core.io.Resource;
 public class Main  {
     public static void main(String[] args) {
         //use Application Context to retrieve the actor details
-        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
-       Movie movie= context.getBean("spiderman", Movie.class);
-       movie.act();
-        //XmlBeanFactory
-        BeanFactory factory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
-        Movie movie2=factory.getBean("spiderman",Movie.class);
-        movie2.act();
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        Movie movie = context.getBean("movie", Movie.class);
+        Movie movie1 = context.getBean("movieB", Movie.class);
+        System.out.println(movie==movie1);
 
-        //BeanDefinitionRegistry
-        @Deprecated
-        BeanDefinitionRegistry registry = new XmlBeanFactory(new ClassPathResource("beans.xml"));
-        XmlBeanDefinitionReader rdr = new XmlBeanDefinitionReader(registry);
-       
-        Movie mv1 =((XmlBeanFactory)factory).getBean("spiderman",Movie.class);
-        mv1.act();
+        System.out.println(movie1);
 
     }
 }
