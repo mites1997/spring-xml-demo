@@ -28,10 +28,13 @@
         <constructor-arg name="gender" value="M"/>
         <constructor-arg name="age" value="21"/>
     </bean>
-    <bean id="movie" class="com.stackroute.domain.Movie" scope="prototype" autowire="byName">
+    <bean id="movie" class="com.stackroute.domain.Movie" scope="prototype" autowire="constructor">
+
 
     </bean>
-    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype" autowire="constructor">
+    <bean id="beanLifeCycleDemoBean" class="com.stackroute.domain.BeanLifeCycleDemoBean" init-method="customInit" destroy-method="customDestroy" ></bean>
+    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype" autowire="constructor" >
+
 
     </bean>
 </beans>
