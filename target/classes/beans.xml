@@ -33,6 +33,7 @@
 
     </bean>
     <bean id="beanLifeCycleDemoBean" class="com.stackroute.domain.BeanLifeCycleDemoBean" init-method="customInit" destroy-method="customDestroy" ></bean>
+    <bean id="beanPostProcessorDemoBean" class="com.stackroute.domain.BeanPostProcessorDemoBean"></bean>
     <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype" autowire="constructor" >
 
 
